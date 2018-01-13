@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HelloWorld from './components/HelloWorld'
+import allPosts from './components/allPosts'
+import createPost from './components/createPost'
+import findPost from './components/findPost'
+import deletePost from './components/deletePost'
 
 Vue.use(VueRouter)
 
@@ -12,22 +15,22 @@ export default new VueRouter({
       component: allPosts
     },
     {
-      path: '/api/posts',
+      path: '/allposts',
       name: 'allPosts',
       component: allPosts
     },
     {
-      path: '/createPost',
-      name: 'createPost',
-      component: findPost
-    },
-    {
-      path: '/createPost',
+      path: '/createpost',
       name: 'createPost',
       component: createPost
     },
     {
-      path: '/deletePost',
+      path: '/findpost',
+      name: 'findPost',
+      component: findPost
+    },
+    {
+      path: '/deletepost',
       name: 'deletePost',
       component: deletePost
     }

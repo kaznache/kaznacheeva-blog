@@ -22,13 +22,13 @@ app.get('/api/posts', postsController.all);
 app.post('/api/posts', postsController.create);
 
 /* Выдаёт один пост из блога с данным ID */
-app.get('/artists/:id', postsController.findById);
+app.get('/api/posts/:id', postsController.findById);
 
 /* Обновление поста с данным ID */
-// app.put('/artists/:id', postsController.update);
+// app.put('/api/posts/:id', postsController.update);
 
 /* Удаляет единственный пост блога с данным ID. Возвращает этот пост */
-app.delete('/artists/:id', postsController.delete);
+app.delete('/api/posts/:id', postsController.delete);
 
 
 db.connect('mongodb://localhost:27017/blogapi', (err) => {
