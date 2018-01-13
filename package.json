@@ -1,0 +1,47 @@
+{
+  "name": "kaznacheeva-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaznache/kaznacheeva-blog.git"
+  },
+  "author": "kaznache",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaznache/kaznacheeva-blog/issues"
+  },
+  "homepage": "https://github.com/kaznache/kaznacheeva-blog#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "bootstrap-vue": "^1.4.0",
+    "cors": "^2.8.4",
+    "css-loader": "^0.28.8",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.1",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.11",
+    "resolve-url-loader": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
+    "vue-loader": "^13.7.0",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0"
+  }
+}
