@@ -11,8 +11,7 @@
     "start": "node server",
     "watch": "webpack --watch",
     "build": "webpack",
-    "server": "nodemon server.js",
-    "heroku-postbuild": "npm install --dev; webpack -p --config ./webpack.config.js --progress"
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
