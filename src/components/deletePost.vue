@@ -12,7 +12,7 @@
     <div class="alert alert-danger" v-if="error">
       {{error}}
     </div>
-    <!-- <div class="card" v-if="post">
+    <div class="card" v-if="post">
       <div class="card-header">
         <small class="float-right">{{post.id}}</small>
         {{post.categories}}
@@ -22,7 +22,7 @@
         <p class="card-text">{{post.content}}</p>
         <small class="float-right" hidden>{{post.id}}</small>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -52,7 +52,8 @@ export default {
         let uri = '/api/posts/';
         axios.delete(uri + this.postId)
         .then((response) => {
-          if (!response.data.deleted) {
+          this.post = response.data
+          if (!this.post) {
             this.error = 'No such Id'
           } else {
             this.error = 'This post is deleted! You did it! Shame on you...'

@@ -33,10 +33,19 @@ exports.create = (artist, cb) => {
 } */
 
 exports.delete = (id, cb) => {
-  db.get().collection('posts').deleteOne(
+  db.get().collection('posts').findAndModify(
     { id: id },
+    [],
+    {},
+    { remove: true },
     (err, result) => {
-      cb(err, result);
+      cb(err, result.value);
     }
   );
+  // db.get().collection('posts').deleteOne(
+  //   { id: id },
+  //   (err, result) => {
+  //     cb(err, result);
+  //   }
+  // );
 }

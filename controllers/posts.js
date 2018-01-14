@@ -65,12 +65,7 @@ exports.delete = (req, res) => {
         console.log(err);
         return res.sendStatus(500);
       }
-      res.send(
-        {
-          result: result,
-          deleted: result.deletedCount > 0
-        }
-      );
+      res.send(result);
     }
   )
 }
