@@ -1,7 +1,6 @@
 const Posts = require('../models/posts');
 
 exports.all = (req, res) => {
-  console.log(req.query)
   Posts.all(
   (err, result) => {
       if (err) {
