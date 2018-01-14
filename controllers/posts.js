@@ -26,16 +26,19 @@ exports.findById = (req, res) => {
 }
 
 exports.create = (req, res) => {
-  let posts = {
-    name: req.body.name
+  let post = {
+    id: req.body.id,
+    title: req.body.title,
+    categories: req.body.categories,
+    content: req.body.content
   };
-  Posts.create(posts, 
+  Posts.create(post, 
     (err, result) => {
       if (err) {
         console.log(err);
         return res.sendStatus(500);
       }
-      res.send(posts);
+      res.send(post);
     }
   )
 }
@@ -62,7 +65,7 @@ exports.delete = (req, res) => {
         console.log(err);
         return res.sendStatus(500);
       }
-      res.sendStatus(200);
+      res.send(result);
     }
   )
 }

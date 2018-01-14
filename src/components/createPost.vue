@@ -1,21 +1,32 @@
 <template>
   <div class="createPost">
     <h1>{{ title }}</h1>
-    <h2>Title</h2>
-    <div class="__margin-bottom_m">
-      <input type="text" v-model="post.title" />
-    </div>
-    <div class="__margin-bottom_m">
-      <input type="text" v-model="post.categories" />
-    </div>
-    <div class="__margin-bottom_m">
-      <textarea name="postText" id="postText" cols="30" rows="10" v-model="post.content"></textarea>
-    </div>
-    <button @click="savePost()">Save</button>
+
+    <form>
+      <div class="form-group">
+        <label for="Title">Title</label>
+        <input v-model="post.title" type="text" class="form-control" id="Title" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="Categories">Categories</label>
+        <input v-model="post.categories" type="text" class="form-control" id="Categories" placeholder="Categories">
+      </div>
+      <div class="form-group">
+        <label for="Content">Content</label>
+        <textarea v-model="post.content" class="form-control" id="Content" placeholder="Content"></textarea>
+      </div>
+      <button @click="savePost()" class="btn btn-success">Save</button>
+      <button @click="cancel()" class="btn btn-light">Cancel</button>
+    </form>
+
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 export default {
   name: 'createPost',
   data () {
@@ -24,13 +35,35 @@ export default {
       post: {
         title: '',
         categories: '',
-        content: ''
-      }
+        content: '',
+        id: ''
+      },
+      uri: '/api/posts',
+      id: ''
     }
+  },
+  mounted () {
+    axios.get(this.uri)
+    .then((response) => {
+      this.id = JSON.stringify(response.data.length + 1);
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   },
   methods: {
     savePost () {
-      console.log(this.post)
+      this.post.id = this.id
+      axios.post(this.uri, this.post)
+      .then((response) => {
+        window.location.href = window.location.origin + '/#/allposts'
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    },
+    cancel () {
+      window.location.href = window.location.origin + '/#/allposts'
     }
   }
 }

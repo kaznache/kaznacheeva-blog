@@ -8,6 +8,7 @@ const db = require('./db');
 const cors = require('cors');
 const postsController = require('./controllers/posts');
 
+const uri = 'mongodb://user:q8RgfRH2aN19PwCj@clusterapi-shard-00-00-brazq.mongodb.net:27017,clusterapi-shard-00-01-brazq.mongodb.net:27017,clusterapi-shard-00-02-brazq.mongodb.net:27017/test?ssl=true&replicaSet=ClusterAPI-shard-0&authSource=admin'
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,7 +32,7 @@ app.get('/api/posts/:id', postsController.findById);
 app.delete('/api/posts/:id', postsController.delete);
 
 
-db.connect('mongodb://localhost:27017/blogapi', (err) => {
+db.connect(uri, (err) => {
   if (err) {
     return console.log(err);
   }

@@ -9,7 +9,7 @@ exports.all = (cb) => {
 
 exports.findById = (id, cb) => {
   db.get().collection('posts').findOne(
-    { _id: ObjectID(id) }, 
+    { id: id }, 
     (err, doc) => { 
       cb(err, doc);
     }
@@ -34,7 +34,7 @@ exports.create = (artist, cb) => {
 
 exports.delete = (id, cb) => {
   db.get().collection('posts').deleteOne(
-    { _id: ObjectID(id) },
+    { id: id },
     (err, result) => {
       cb(err, result);
     }
