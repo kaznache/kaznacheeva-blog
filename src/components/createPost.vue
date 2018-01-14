@@ -15,8 +15,8 @@
         <label for="Content">Content</label>
         <textarea v-model="post.content" class="form-control" id="Content" placeholder="Content"></textarea>
       </div>
-      <button @click="savePost()" class="btn btn-success">Save</button>
-      <button @click="cancel()" class="btn btn-light">Cancel</button>
+      <button type="button" @click="savePost()" class="btn btn-success">Save</button>
+      <button type="button" @click="cancel()" class="btn btn-light">Cancel</button>
     </form>
 
   </div>

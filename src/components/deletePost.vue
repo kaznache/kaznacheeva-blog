@@ -6,8 +6,8 @@
         <label for="postId">Enter ID</label>
         <input v-model="postId" type="text" class="form-control" id="postId" placeholder="Post ID" autofocus>
       </div>
-      <button @click="deletePost()" class="btn btn-danger">Delete</button>
-      <button @click="cancel()" class="btn btn-light">Cancel</button>
+      <button type="button" @click="deletePost()" class="btn btn-danger">Delete</button>
+      <button type="button" @click="cancel()" class="btn btn-light">Cancel</button>
     </form>
     <div class="alert alert-danger" v-if="error">
       {{error}}
