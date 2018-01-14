@@ -5,7 +5,7 @@
     <form>
       <div class="form-group">
         <label for="Title">Title</label>
-        <input v-model="post.title" type="text" class="form-control" id="Title" placeholder="Title">
+        <input v-model="post.title" type="text" class="form-control" id="Title" placeholder="Title" autofocus>
       </div>
       <div class="form-group">
         <label for="Categories">Categories</label>
@@ -45,7 +45,12 @@ export default {
   mounted () {
     axios.get(this.uri)
     .then((response) => {
-      this.id = JSON.stringify(response.data.length + 1);
+      if (response.data.length !== 0) {
+        let lastPost = _.max(response.data, (post) => { return post.id; });
+        this.id = JSON.stringify(Number(lastPost.id) + 1);
+      } else {
+        this.id = '1'
+      }
     })
     .catch((err) => {
       console.log(err)

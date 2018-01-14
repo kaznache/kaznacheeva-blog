@@ -4,7 +4,7 @@
     <form>
       <div class="form-group">
         <label for="postId">Enter ID</label>
-        <input v-model="postId" type="text" class="form-control" id="postId" placeholder="Post ID">
+        <input v-model="postId" type="text" class="form-control" id="postId" placeholder="Post ID" autofocus>
       </div>
       <button @click="findPost()" class="btn btn-primary">Find</button>
       <button @click="cancel()" class="btn btn-light">Cancel</button>

@@ -1,6 +1,7 @@
 const Posts = require('../models/posts');
 
 exports.all = (req, res) => {
+  console.log(req.query)
   Posts.all(
   (err, result) => {
       if (err) {
@@ -65,7 +66,12 @@ exports.delete = (req, res) => {
         console.log(err);
         return res.sendStatus(500);
       }
-      res.send(result);
+      res.send(
+        {
+          result: result,
+          deleted: result.deletedCount > 0
+        }
+      );
     }
   )
 }

@@ -4,7 +4,7 @@
     <form>
       <div class="form-group">
         <label for="postId">Enter ID</label>
-        <input v-model="postId" type="text" class="form-control" id="postId" placeholder="Post ID">
+        <input v-model="postId" type="text" class="form-control" id="postId" placeholder="Post ID" autofocus>
       </div>
       <button @click="deletePost()" class="btn btn-danger">Delete</button>
       <button @click="cancel()" class="btn btn-light">Cancel</button>
@@ -12,7 +12,7 @@
     <div class="alert alert-danger" v-if="error">
       {{error}}
     </div>
-    <div class="card" v-if="post">
+    <!-- <div class="card" v-if="post">
       <div class="card-header">
         <small class="float-right">{{post.id}}</small>
         {{post.categories}}
@@ -22,7 +22,7 @@
         <p class="card-text">{{post.content}}</p>
         <small class="float-right" hidden>{{post.id}}</small>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -52,8 +52,7 @@ export default {
         let uri = '/api/posts/';
         axios.delete(uri + this.postId)
         .then((response) => {
-          this.post = response.data
-          if (!this.post) {
+          if (!response.data.deleted) {
             this.error = 'No such Id'
           } else {
             this.error = 'This post is deleted! You did it! Shame on you...'

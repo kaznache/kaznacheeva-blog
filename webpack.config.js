@@ -35,7 +35,8 @@ module.exports = {
 			$: 'jquery',
 			jQuery: 'jquery',
 			"window.jQuery": 'jquery',
-			"root.jQuery": 'jquery'
+			"root.jQuery": 'jquery',
+			_: 'underscore'
 		})
   ]
 };
